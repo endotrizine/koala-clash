@@ -10,48 +10,33 @@
 <h3 align="center">GUI client for <a href="https://github.com/MetaCubeX/mihomo">Mihomo</a></h3>
 
 ## Features
-
 - [x] Out-of-the-box Tun mode without service mode
 - [x] Multiple color themes
 - [x] Support for most Mihomo configuration options
 - [x] Built-in Mihomo cores (stable and alpha)
-
 ## Screenshots
 ![Preview](./docs/preview.png)
-
 ## Development
-
 ### Requirements
-
 - **Node.js** >= 20.0.0
 - **pnpm** >= 9.0.0
 - **Git**
-
 ### Tech Stack
-
 Koala Clash is built with Electron + React + TypeScript.
-
 **Frontend:** React 19, shadcn/UI, Tailwind CSS, Monaco Editor
-
 **Backend:** Electron, Mihomo Core, sysproxy-go
-
 ### Quick Start
-
 ```bash
 git clone https://github.com/coolcoala/koala-clash.git
 cd koala-clash
 pnpm install
 pnpm dev
 ```
-
 If Electron fails to install:
-
 ```bash
 cd node_modules/electron && node install.js && cd ../..
 ```
-
 ### Project Structure
-
 ```
 src/
 ├── main/               # Electron main process
@@ -69,9 +54,7 @@ src/
 ├── preload/            # Preload scripts (IPC bridge)
 └── shared/types/       # Shared TypeScript types
 ```
-
 ### Commands
-
 | Command | Description |
 |---------|-------------|
 | `pnpm dev` | Start dev server (renderer hot reloads, main requires restart) |
@@ -81,21 +64,20 @@ src/
 | `pnpm build:win` | Build for Windows |
 | `pnpm build:mac` | Build for macOS |
 | `pnpm build:linux` | Build for Linux |
-
 Architecture and format can be specified via flags:
-
 ```bash
 pnpm build:win nsis --x64
 pnpm build:mac pkg --arm64
 pnpm build:linux deb --x64
 ```
-
 ### Build Artifacts
-
 - **Windows**: `.exe` (NSIS installer), `.7z` (portable)
 - **macOS**: `.pkg`
 - **Linux**: `.deb`, `.rpm`, `.pkg.tar.xz` (pacman)
 
-## Credits
+### NixOS
 
+Koala Clash isn't packaged in nixpkgs, but there's a community-maintained flake: [koala-clash-nix](https://github.com/endotrizine/koala-clash-nix). It provides a package and a NixOS module with TUN mode support out of the box (no root required).
+
+## Credits
 Based on [Sparkle](https://github.com/xishang0128/sparkle) by [xishang0128](https://github.com/xishang0128).
